@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Fullstack Airbnb Clone with Next.js 13 App Router
 
-## Getting Started
+This project is a fullstack Airbnb clone built with Next.js 13 App Router, React, Tailwind, Prisma, MongoDB, and NextAuth.
 
-First, run the development server:
+## Introduction
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+The purpose of this project is to provide a fully functional Airbnb clone that can be used as a starting point for building similar applications. The project is built with popular technologies and frameworks, making it easy to understand and extend.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technologies Used
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The following technologies were used in this project:
 
-[http://localhost:3000/api/hello](http://localhost:3000/api/hello) is an endpoint that uses [Route Handlers](https://beta.nextjs.org/docs/routing/route-handlers). This endpoint can be edited in `app/api/hello/route.ts`.
+- [Next.js 13 App Router](#nextjs-13-app-router)
+- [React](#react)
+- [Tailwind CSS](#tailwind-css)
+- [Prisma](#prisma)
+- [MongoDB](#mongodb)
+- [NextAuth](#nextauth)
+- [Mapbox](#mapbox)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Features
 
-## Learn More
+- User authentication with NextAuth
+- Search functionality with Mapbox
+- Booking functionality
+- User dashboard with booking history
+- Responsive design with Tailwind CSS
 
-To learn more about Next.js, take a look at the following resources:
+## Screenshots
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+![Screenshot of Home Page](/screenshots/home-page.png)
+![Screenshot of Search Results Page](/screenshots/search-results-page.png)
+![Screenshot of Booking Page](/screenshots/booking-page.png)
+![Screenshot of User Dashboard](/screenshots/user-dashboard.png)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## How to Setup
 
-## Deploy on Vercel
+1. Clone the repository
+2. Install dependencies with `npm install`
+3. Create a `.env.local` file and add the required environment variables (see `.env.example` for an example)
+4. Start the development server with `npm run dev`
+5. Open `http://localhost:3000` in your browser
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Conclusion
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This project provides a solid foundation for building Airbnb-like applications with Next.js, React, Tailwind CSS, Prisma, MongoDB, and NextAuth. By following along with the tutorial, you'll gain a better understanding of these technologies and how they can be used together to build complex applications.
+
+## Credits
+
+This project was created by [Code With Antonio](https://www.youtube.com/@codewithantonio).Tutorial video for this project can be found on the [Code With Antonio YouTube channel](https://youtu.be/c_-b_isI4vg). Thank you for the great tutorial!
