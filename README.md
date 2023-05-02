@@ -55,10 +55,50 @@ This project was created by [Code With Antonio](https://www.youtube.com/@codewit
 
 - We have to mark some components as client components. This is something we have to do with when we work with `app` folder. Because every page and component we create inside the app folder, is a `server component` by default.
 
--`Hydration problems` - When you have a component that is a server component, and you try to import a component that is a client component, you can run into problems.
+- `Hydration problems` - When you have a component that is a server component, and you try to import a component that is a client component, you can run into problems.
 
 - That can lead to hydration problems if you mix and match imports with client and server components.
 
 - At the top of client components, we add `use client` to make sure that we are using client components.
 
+<img src= "./public/git_mark_images/app_directory_hydration_runtime_error.png" alt="hydration_runtime_error">
+
 - There is a bug in Next.js (current version: 13.3.2) `experimental app directory`, if we click something on the website (basically an interaction) while reloding, it triggers a `hydration error`. This is a known bug and will be fixed in the future. By the time being, use following code to fix this issue:
+
+1. Create a file called `ClientOnly.tsx` inside the `components` folder.
+
+2. Copy and paste the following code inside the `ClientOnly.tsx` file:
+
+```
+"use client";
+import { useEffect, useState } from "react";
+
+interface ClientOnlyProps {
+  children: React.ReactNode;
+}
+
+const ClientOnly: React.FC<ClientOnlyProps> = ({ children }) => {
+  const [hasMounted, setHasMounted] = useState(false);
+
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
+  if (!hasMounted) {
+    return null;
+  }
+
+  return <>{children}</>;
+};
+
+export default ClientOnly;
+
+```
+
+3. Wrap the component that is causing the hydration error with the `ClientOnly` component. For example: In this case we are wrapping `Navbar` component.
+
+```
+<ClientOnly>
+    <Navbar />
+</ClientOnly>
+```
