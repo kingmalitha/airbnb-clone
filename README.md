@@ -48,3 +48,17 @@ This project provides a solid foundation for building Airbnb-like applications w
 ## Credits
 
 This project was created by [Code With Antonio](https://www.youtube.com/@codewithantonio).Tutorial video for this project can be found on the [Code With Antonio YouTube channel](https://youtu.be/c_-b_isI4vg). Thank you for the great tutorial!
+
+## Tips & Tricks
+
+### Next.js 13 App Router
+
+- We have to mark some components as client components. This is something we have to do with when we work with `app` folder. Because every page and component we create inside the app folder, is a `server component` by default.
+
+-`Hydration problems` - When you have a component that is a server component, and you try to import a component that is a client component, you can run into problems.
+
+- That can lead to hydration problems if you mix and match imports with client and server components.
+
+- At the top of client components, we add `use client` to make sure that we are using client components.
+
+- There is a bug in Next.js (current version: 13.3.2) `experimental app directory`, if we click something on the website (basically an interaction) while reloding, it triggers a `hydration error`. This is a known bug and will be fixed in the future. By the time being, use following code to fix this issue:
