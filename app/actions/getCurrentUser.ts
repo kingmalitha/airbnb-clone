@@ -20,7 +20,14 @@ export default async function getCurrentUser() {
     });
     if (!currentUser) return null;
 
-    return currentUser;
+    return {
+      ...currentUser,
+      createdAt: currentUser.createdAt.toISOString(),
+      updatedAt: currentUser.updatedAt.toISOString(),
+      emailVerified: currentUser.emailVerified?.toISOString() || null,
+    };
+
+    //Above code is becasue, we are using Prisma ORM, which returns date as Date object, but we need date objects can cause hydrate error, so we convert them to ISOString
   } catch (error) {
     return null;
   }
