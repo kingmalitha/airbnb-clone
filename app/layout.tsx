@@ -1,11 +1,13 @@
 import ClientOnly from "./components/ClientOnly";
-import RegisterModal from "./components/modals/RegisterModal";
-import LoginModal from "./components/modals/LoginModal";
 import Navbar from "./components/navbar/Navbar";
 import "./globals.css";
 import { Nunito } from "next/font/google";
 import ToasterProvider from "./providers/ToasterProvider";
 import getCurrentUser from "./actions/getCurrentUser";
+
+import RegisterModal from "./components/modals/RegisterModal";
+import LoginModal from "./components/modals/LoginModal";
+import RentModal from "./components/modals/RentModal";
 
 export const metadata = {
   //? The title and description are used by search engines to display your website.
@@ -29,6 +31,7 @@ export default async function RootLayout({
       <body className={font.className}>
         <ClientOnly>
           <ToasterProvider />
+          <RentModal />
           <LoginModal />
           <RegisterModal />
           <Navbar currentUser={currentUser} />
