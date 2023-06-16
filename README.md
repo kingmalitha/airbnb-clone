@@ -102,3 +102,45 @@ export default ClientOnly;
     <Navbar />
 </ClientOnly>
 ```
+
+## NPM PACKAGES USED
+
+### query-string
+
+The query-string npm package is used to parse and stringify URL query strings.
+
+- A simple and lightweight query string parser with zero dependencies.
+- Provides a consistent and well-documented API for working with query strings.
+- Flexible, allowing you to use it in a variety of ways including HTML forms, HTTP requests, and URL parameters.
+- Hence, it reduces errors and imporve code readability.
+
+Read more about [query-string](https://www.npmjs.com/package/query-string)
+
+The following code shows how to use the query-string npm package to parse a URL query string:
+
+```js
+const query = require("query-string");
+const url = "https://example.com/?q=foo&bar=bar";
+const params = query.parse(url);
+console.log(params);
+```
+
+Following code shows example of how to parse a URL query string using the built-in JavaScript URL object:
+
+```js
+const url = "https://example.com/?q=foo&bar=bar";
+const urlObj = new URL(url);
+const params = Object.fromEntries(urlObj.searchParams);
+console.log(params);
+```
+
+Output:
+
+```js
+{
+  q: 'foo',
+  bar: 'bar'
+}
+```
+
+As you can see, the traditional approach to parsing URL query strings is more verbose and requires more code. .
