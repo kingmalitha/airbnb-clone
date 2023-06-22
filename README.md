@@ -143,4 +143,24 @@ Output:
 }
 ```
 
-As you can see, the traditional approach to parsing URL query strings is more verbose and requires more code. .
+As you can see, the traditional approach to parsing URL query strings is more verbose and requires more code.
+
+### react-leaflet, leaflet
+
+The react-leaflet npm package is used to render a map with Leaflet. The leaflet is one of the most popular open-source JavaScript libraries for interactive maps.
+However, the leaflet library is not compatible with React. The react-leaflet npm package provides a React-friendly API wrapper around the leaflet library.
+We have to do some neccessary changes in order to make it work with Next.js.
+
+Read more about [react-leaflet](https://www.npmjs.com/package/react-leaflet)
+Read more about [leaflet](https://www.npmjs.com/package/leaflet)
+
+It is used in `Map` component in this project. In additional, we have to change some css properties. The changes are available in `global.css` file.
+
+```css
+.leaflet-bottom,
+.leaflet-control,
+.leaflet-pane,
+.leaflet-top {
+  z-index: 0 !important;
+}
+```
