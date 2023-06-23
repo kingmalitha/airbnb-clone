@@ -1,7 +1,6 @@
 "use client";
 
-import { SafeListing, SafeUser } from "@/app/types";
-import { Reservation } from "@prisma/client";
+import { SafeListing, SafeReservation, SafeUser } from "@/app/types";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { categories } from "@/app/components/navbar/Categories";
 import Container from "@/app/components/Container";
@@ -21,7 +20,7 @@ const initialDateRange = {
 };
 
 interface ListingClientProps {
-  reservation?: Reservation[];
+  reservation?: SafeReservation[];
   listing: SafeListing & { user: SafeUser };
   currentUser?: SafeUser | null;
 }
@@ -127,7 +126,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
               <ListingReservation
                 price={listing.price}
                 totalPrice={totalPrice}
-                onChangeDate={(value) => setDateRange(value)}
+                onChangeDate={(value: any) => setDateRange(value)}
                 dateRange={dateRange}
                 onSubmit={onCreateReservation}
                 disabled={isLoading}
