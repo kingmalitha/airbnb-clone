@@ -67,9 +67,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
       .then(() => {
         toast.success("Listing Reserved");
         setDateRange(initialDateRange);
-
-        // REDIRECT TO /trips
-        router.refresh();
+        router.push("/trips");
       })
       .catch(() => {
         toast.error("Something went wrong");
@@ -103,8 +101,8 @@ const ListingClient: React.FC<ListingClientProps> = ({
 
   return (
     <Container>
-      <div className="max-w-screen mx-auto ">
-        <div className="flex flex-col gap-6">
+      <div className='max-w-screen mx-auto '>
+        <div className='flex flex-col gap-6'>
           <ListingHead
             title={listing.title}
             imageSrc={listing.imageSrc}
@@ -112,7 +110,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
             id={listing.id}
             currentUser={currentUser}
           />
-          <div className="mt-6 grid grid-cols-1 md:grid-cols-7 md:gap-10">
+          <div className='mt-6 grid grid-cols-1 md:grid-cols-7 md:gap-10'>
             <ListingInfo
               user={listing.user}
               category={category}
@@ -122,11 +120,11 @@ const ListingClient: React.FC<ListingClientProps> = ({
               bathroomCount={listing.bathroomCount}
               locationValue={listing.locationValue}
             />
-            <div className="order-first mb-10 md:order-last md:col-span-3">
+            <div className='order-first mb-10 md:order-last md:col-span-3'>
               <ListingReservation
                 price={listing.price}
                 totalPrice={totalPrice}
-                onChangeDate={(value: any) => setDateRange(value)}
+                onChangeDate={(value) => setDateRange(value)}
                 dateRange={dateRange}
                 onSubmit={onCreateReservation}
                 disabled={isLoading}
