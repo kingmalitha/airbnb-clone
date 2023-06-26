@@ -8,6 +8,7 @@ import ListingHead from "@/app/components/listings/ListingHead";
 import ListingInfo from "@/app/components/listings/ListingInfo";
 import useLoginModal from "@/app/hooks/useLoginModal";
 import { useRouter } from "next/navigation";
+import { Range } from "react-date-range";
 import { differenceInCalendarDays, eachDayOfInterval } from "date-fns";
 import axios from "axios";
 import { toast } from "react-hot-toast";
@@ -20,14 +21,14 @@ const initialDateRange = {
 };
 
 interface ListingClientProps {
-  reservation?: SafeReservation[];
+  reservations?: SafeReservation[];
   listing: SafeListing & { user: SafeUser };
   currentUser?: SafeUser | null;
 }
 
 const ListingClient: React.FC<ListingClientProps> = ({
   listing,
-  reservation = [],
+  reservations = [],
   currentUser,
 }) => {
   const loginModal = useLoginModal();
@@ -36,7 +37,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
   const disabledDates = useMemo(() => {
     let dates: Date[] = [];
 
-    reservation.forEach((reservation) => {
+    reservations.forEach((reservation: any) => {
       const range = eachDayOfInterval({
         start: new Date(reservation.startDate),
         end: new Date(reservation.endDate),
@@ -45,11 +46,11 @@ const ListingClient: React.FC<ListingClientProps> = ({
     });
 
     return dates;
-  }, [reservation]);
+  }, [reservations]);
 
   const [isLoading, setIsLoading] = useState(false);
   const [totalPrice, setTotalPrice] = useState(listing.price);
-  const [dateRange, setDateRange] = useState(initialDateRange);
+  const [dateRange, setDateRange] = useState<Range>(initialDateRange);
 
   const onCreateReservation = useCallback(() => {
     if (!currentUser) {
@@ -62,7 +63,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
         totalPrice,
         startDate: dateRange.startDate,
         endDate: dateRange.endDate,
-        listingId: listing.id,
+        listingId: listing?.id,
       })
       .then(() => {
         toast.success("Listing Reserved");
@@ -70,7 +71,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
         router.push("/trips");
       })
       .catch(() => {
-        toast.error("Something went wrong");
+        toast.error("Something went wrong.");
       })
       .finally(() => {
         setIsLoading(false);
