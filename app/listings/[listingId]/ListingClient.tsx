@@ -9,7 +9,7 @@ import ListingInfo from "@/app/components/listings/ListingInfo";
 import useLoginModal from "@/app/hooks/useLoginModal";
 import { useRouter } from "next/navigation";
 import { Range } from "react-date-range";
-import { differenceInCalendarDays, eachDayOfInterval } from "date-fns";
+import { differenceInDays, eachDayOfInterval } from "date-fns";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import ListingReservation from "@/app/components/listings/ListingReservation";
@@ -31,6 +31,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
   reservations = [],
   currentUser,
 }) => {
+  // console.log(`ListingClient.tsx -> reservations: ${reservations.length}`);
   const loginModal = useLoginModal();
   const router = useRouter();
 
@@ -38,6 +39,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
     let dates: Date[] = [];
 
     reservations.forEach((reservation: any) => {
+      // console.log("Inside");
       const range = eachDayOfInterval({
         start: new Date(reservation.startDate),
         end: new Date(reservation.endDate),
@@ -47,6 +49,10 @@ const ListingClient: React.FC<ListingClientProps> = ({
 
     return dates;
   }, [reservations]);
+
+  // console.log(`ListingClient.tsx -> reservations: ${reservations}`);
+
+  // console.log(`ListingClient.tsx -> disabledDates: ${disabledDates}`);
 
   const [isLoading, setIsLoading] = useState(false);
   const [totalPrice, setTotalPrice] = useState(listing.price);
@@ -83,10 +89,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
       // differenceInCalendarDays returns the number of calendar days between the given dates
       // differenceInDays returns the number of full days between the given dates. it will consider the time also.
 
-      const dayCount = differenceInCalendarDays(
-        dateRange.endDate,
-        dateRange.startDate
-      );
+      const dayCount = differenceInDays(dateRange.endDate, dateRange.startDate);
 
       if (dayCount && listing.price) {
         setTotalPrice(dayCount * listing.price);
