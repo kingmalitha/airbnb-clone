@@ -9,11 +9,13 @@ import RegisterModal from "./components/modals/RegisterModal";
 import LoginModal from "./components/modals/LoginModal";
 import RentModal from "./components/modals/RentModal";
 import SearchModal from "./components/modals/SearchModal";
+import Message from "./components/Message";
 
 export const metadata = {
   //? The title and description are used by search engines to display your website.
-  title: "Airbnb",
-  description: "Airbnb clone",
+  title: "RoamRental | airbnb Clone",
+  description:
+    "Discover exceptional accommodations worldwide with RoamRental. Book now!",
 };
 
 const font = Nunito({
@@ -36,6 +38,7 @@ export default async function RootLayout({
           <RentModal />
           <LoginModal />
           <RegisterModal />
+          {/* <Message /> */}
           <Navbar currentUser={currentUser} />
         </ClientOnly>
         <div className='pb-20 pt-28'>{children}</div>

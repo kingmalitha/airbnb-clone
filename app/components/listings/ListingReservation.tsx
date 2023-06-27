@@ -23,7 +23,7 @@ const ListingReservation: React.FC<ListingReservationProps> = ({
   disabled,
   disabledDates,
 }) => {
-  console.log(`ListingReservation.tsx -> disabledDates: ${disabledDates}`);
+  // console.log(`ListingReservation.tsx -> disabledDates: ${disabledDates}`);
   return (
     <div className='overflow-hidden rounded-xl border-[1px] border-neutral-200 bg-white'>
       <div className='flex flex-row items-center gap-1 p-4'>

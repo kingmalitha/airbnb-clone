@@ -12,7 +12,12 @@ const ErrorState = ({ error }: ErrorStateProps) => {
     console.log(error);
   }, [error]);
 
-  return <EmptyState title='Oops ...' subtitle='Something went wrong' />;
+  return (
+    <EmptyState
+      title='Oops ... Something Went Wrong!'
+      subtitle='If you experience login errors or no places are displayed on the homepage, it might be due to an inactive MongoDB database cluster. Please contact me at contact.malithasandaruwan@gmail.com for assistance.'
+    />
+  );
 };
 
 export default ErrorState;

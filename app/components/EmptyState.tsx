@@ -17,13 +17,13 @@ const EmptyState: React.FC<EmptyStateProps> = ({
 }) => {
   const router = useRouter();
   return (
-    <div className="flex  h-[60vh] flex-col items-center justify-center gap-2">
+    <div className='flex  h-[60vh] flex-col items-center justify-center gap-2 px-32'>
       <Heading center title={title} subtitle={subtitle} />
-      <div className="mt-4 w-48">
+      <div className='mt-4 w-48'>
         {showReset && (
           <Button
             outline
-            label="Remove all filter"
+            label='Remove all filter'
             onClick={() => router.push("/")}
           />
         )}

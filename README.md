@@ -1,12 +1,16 @@
-# Fullstack Airbnb Clone with Next.js 13 App Router
+# RoamRental | Airbnb Clone
 
-This project is a fullstack Airbnb clone built with Next.js 13 App Router, React, Tailwind, Prisma, MongoDB, and NextAuth.
+RoamRental is a unique and innovative platform that connects travelers with exceptional accommodations around the world. Whether you're a globetrotter seeking an unforgettable adventure or a weekend wanderer looking for a cozy getaway, RoamRental offers a diverse selection of handpicked properties to suit every style and preference.
+
+With our user-friendly interface and personalized recommendations, finding the perfect place to stay has never been easier. Embrace the freedom to roam and discover your dream destination with RoamRental, where memorable experiences begin
 
 ## Introduction
 
-The purpose of this project is to provide a fully functional Airbnb clone that can be used as a starting point for building similar applications. The project is built with popular technologies and frameworks, making it easy to understand and extend.
+The purpose of this project is to provide a fully functional Airbnb clone that can be used as a starting point for building similar applications.The project is built with popular technologies and frameworks, making it easy to understand and extend.
 
 ## Technologies Used
+
+![Technologies Used](https://skillicons.dev/icons?i=js,css,tailwind,nextjs,prisma,mongodb,vercel)
 
 The following technologies were used in this project:
 
@@ -26,18 +30,35 @@ The following technologies were used in this project:
 - User dashboard with booking history
 - Responsive design with Tailwind CSS
 
+## What I Learned
+
+- How to use Next.js 13 App Router
+- How to use NextAuth for user authentication
+- How to use Mapbox for search functionality
+- How to use Prisma with MongoDB
+- How to use query-string for parsing URL query strings
+- How to use date-fns and react-date-range for date formatting and creating more suitable calendar component.
+
+## Plans for the Future
+
+- Add more features
+- Integrate with a payment provider (e.g. Stripe)
+- Add more details to the listings (e.g. amenities, reviews, etc.)
+
 ## Screenshots
 
-![Screenshot of Home Page](/screenshots/home-page.png)
-![Screenshot of Search Results Page](/screenshots/search-results-page.png)
-![Screenshot of Booking Page](/screenshots/booking-page.png)
-![Screenshot of User Dashboard](/screenshots/user-dashboard.png)
+![Screenshot of Home Page](/markdown_images/home-page.png)
+![Screenshot of Login Page](/markdown_images/login-page.png)
+![Screenshot of Favorites Page](/markdown_images/favorites-page.png)
+![Screenshot of Listing Page](/markdown_images/listing-page.png)
+![Screenshot of Reservation Page](/markdown_images/reservation-page.png)
+![Screenshot of Trips Page](/markdown_images/trip-page.png)
 
 ## How to Setup
 
 1. Clone the repository
 2. Install dependencies with `npm install`
-3. Create a `.env.local` file and add the required environment variables (see `.env.example` for an example)
+3. Create a `.env` file and add the required environment variables (see `.env.example` for an example)
 4. Start the development server with `npm run dev`
 5. Open `http://localhost:3000` in your browser
 
